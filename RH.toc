@@ -4,4 +4,5 @@
 Data.lua
 UnitAura.lua
 Core.lua
+PaladinHoly.lua
 PaladinProt.lua
