@@ -182,6 +182,11 @@ local function RH_GetCooldown(state, spell)
 
     local cooldown = C_Spell.GetSpellCooldown(spell)
     local cooldownRemaining = RH_GetCooldownRemaining(state.time, cooldown)
+
+    if state.assumedCast == RH_Spell_Paladin_CrusaderStrike and (spell == RH_Spell_Paladin_HolyShock or spell == RH_Spell_Paladin_JudgmentHoly) then
+        cooldownRemaining = math.max(0, cooldownRemaining - 2.0)
+    end
+
     local gcd = state.gcdRemaining > 0 and cooldownRemaining == state.gcdRemaining
     return cooldownRemaining, gcd
 end
